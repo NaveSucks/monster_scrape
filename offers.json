@@ -1,0 +1,42 @@
+[
+  {
+    "discounter": "Lidl",
+    "price": "0,88 €",
+    "date": "2025-09-19"
+  },
+  {
+    "discounter": "Penny",
+    "price": "0,99 €",
+    "date": "2025-09-19"
+  },
+  {
+    "discounter": "REWE",
+    "price": "0,88 €",
+    "date": "2025-09-22"
+  },
+  {
+    "discounter": "REWE",
+    "price": "0,88 €",
+    "date": "2025-09-22"
+  },
+  {
+    "discounter": "Lidl",
+    "price": "0,88 €",
+    "date": "2025-09-22"
+  },
+  {
+    "discounter": "REWE",
+    "price": "0,88 €",
+    "date": "2025-09-23"
+  },
+  {
+    "discounter": "REWE",
+    "price": "0,88 €",
+    "date": "2025-09-23"
+  },
+  {
+    "discounter": "Lidl",
+    "price": "0,88 €",
+    "date": "2025-09-23"
+  }
+]
