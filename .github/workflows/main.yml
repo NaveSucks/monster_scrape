@@ -20,7 +20,7 @@ jobs:
       - name: Build Go application
         run: |
           go mod tidy
-          go build -o webapp-monster ./cmd/webapp
+          go build -o monster-scrape ./cmd/webapp
 
       - name: Docker Login to VPS
         uses: appleboy/ssh-action@v0.1.7
@@ -39,7 +39,7 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: deploy
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "./webapp-monster"
+          source: "./monster-scrape"
           target: "/home/deploy/monster-scrape"
 
       - name: Deploy to VPS
@@ -50,8 +50,11 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/deploy/monster-scrape
-            sudo docker stop monster-scrape || true
-            sudo docker rm monster-scrape || true
-            sudo docker rmi monster-scrape-image || true
-            sudo docker build -t monster-scrape-image .
-            sudo docker run -d --name monster-scrape -p 8080:8080 monster-scrape-image
+            docker stop monster-scrape || true
+            docker rm monster-scrape || true
+            docker rmi monster-scrape-image || true
+            docker build -t monster-scrape-image .
+            docker run -d --name monster-scrape \
+              -p 8080:8080 \
+              -e SCRAPE_URL="${{ secrets.SCRAPE_URL }}" \
+              monster-scrape-image
