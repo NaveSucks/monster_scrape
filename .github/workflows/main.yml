@@ -1,0 +1,57 @@
+name: CI/CD Pipeline Monster scrape
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+
+      - name: Build Go application
+        run: |
+          go mod tidy
+          go build -o webapp-monster ./cmd/webapp
+
+      - name: Docker Login to VPS
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: deploy
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            echo "Building and deploying monster scrape application..."
+            mkdir -p /home/deploy/monster-scrape
+            cd /home/deploy/monster-scrape
+
+      - name: Copy files via SCP
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: deploy
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "./webapp-monster"
+          target: "/home/deploy/monster-scrape"
+
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: deploy
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /home/deploy/monster-scrape
+            sudo docker stop monster-scrape || true
+            sudo docker rm monster-scrape || true
+            sudo docker rmi monster-scrape-image || true
+            sudo docker build -t monster-scrape-image .
+            sudo docker run -d --name monster-scrape -p 8080:8080 monster-scrape-image
