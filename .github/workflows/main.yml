@@ -39,7 +39,7 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: deploy
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "./monster-scrape"
+          source: "./monster-scrape,Dockerfile"
           target: "/home/deploy/monster-scrape"
 
       - name: Deploy to VPS
