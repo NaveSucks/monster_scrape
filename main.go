@@ -35,11 +35,12 @@ func main() {
 	c.Start()
 
 	// --- Start API (blocking) ---
-	port := os.Getenv("API_PORT")
-	if port == "" {
-		port = "8080" // fallback
-	}
-	StartAPI(port)
+	//port := os.Getenv("API_PORT")
+	//if port == "" {
+	//port = "8080" // fallback
+	//}
+	//StartAPI(port)
+	StartAPI("8080")
 }
 
 // runScrape encapsulates fetch + save logic
