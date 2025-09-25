@@ -68,5 +68,10 @@
     "discounter": "Lidl",
     "price": "0,88 €",
     "date": "2025-09-25"
+  },
+  {
+    "discounter": "Netto Marken-Discount",
+    "price": "0,99 €",
+    "date": "2025-09-25"
   }
 ]

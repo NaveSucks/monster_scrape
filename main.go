@@ -9,15 +9,17 @@ import (
 )
 
 func main() {
-	// Load environment variables
-	err := godotenv.Load("config.env")
-	if err != nil {
-		log.Fatal("Error loading config.env")
+	// Load config.env if it exists (local dev)
+	if _, err := os.Stat("config.env"); err == nil {
+		if err := godotenv.Load("config.env"); err != nil {
+			log.Fatalf("Error loading config.env: %v", err)
+		}
 	}
 
+	// Get value from environment
 	url := os.Getenv("SCRAPE_URL")
 	if url == "" {
-		log.Fatal("SCRAPE_URL not set in config.env")
+		log.Fatal("SCRAPE_URL not set")
 	}
 
 	// --- Fetch once at startup (for debugging & freshness) ---
@@ -25,7 +27,7 @@ func main() {
 
 	// --- Schedule daily scraping at 03:00 AM ---
 	c := cron.New()
-	_, err = c.AddFunc("0 3 * * *", func() {
+	_, err := c.AddFunc("0 3 * * *", func() {
 		log.Println("Starting scheduled scrape...")
 		runScrape(url)
 	})
