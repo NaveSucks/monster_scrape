@@ -20,7 +20,7 @@ jobs:
       - name: Build Go application
         run: |
           go mod tidy
-          go build -o monster-scrape .
+          CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o monster-scrape .
 
       - name: Docker Login to VPS
         uses: appleboy/ssh-action@v0.1.7

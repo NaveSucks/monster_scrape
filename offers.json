@@ -38,5 +38,35 @@
     "discounter": "Lidl",
     "price": "0,88 €",
     "date": "2025-09-23"
+  },
+  {
+    "discounter": "REWE",
+    "price": "0,88 €",
+    "date": "2025-09-24"
+  },
+  {
+    "discounter": "REWE",
+    "price": "0,88 €",
+    "date": "2025-09-24"
+  },
+  {
+    "discounter": "Lidl",
+    "price": "0,88 €",
+    "date": "2025-09-24"
+  },
+  {
+    "discounter": "REWE",
+    "price": "0,88 €",
+    "date": "2025-09-25"
+  },
+  {
+    "discounter": "REWE",
+    "price": "0,88 €",
+    "date": "2025-09-25"
+  },
+  {
+    "discounter": "Lidl",
+    "price": "0,88 €",
+    "date": "2025-09-25"
   }
 ]
