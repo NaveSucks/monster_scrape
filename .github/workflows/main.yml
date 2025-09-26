@@ -71,7 +71,10 @@ jobs:
             # Pull the latest images for all services
             docker compose pull
             
+            # scrape_url environment variable
+            export SCRAPE_URL="${{ secrets.SCRAPE_URL }}"
+            
             # Restart the stack to use the newly pulled image
             # The 'up' command will detect the new monster-scrape image and recreate
             # that container, then restart the trends container if it depends on it.
-            docker compose up -d --force-recreate -e SCRAPE_URL="${{ secrets.SCRAPE_URL }}"
+            docker compose up -d --force-recreate
