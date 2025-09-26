@@ -8,16 +8,13 @@ import (
 	"github.com/robfig/cron/v3"
 )
 
-func main() {
-	// Load config.env if it exists (local dev)
-	if _, err := os.Stat("config.env"); err == nil {
-		if err := godotenv.Load("config.env"); err != nil {
-			log.Fatalf("Error loading config.env: %v", err)
-		}
-	}
+func init() {
+	// Only load local config.env if it exists
+	_ = godotenv.Load("config.env")
+}
 
-	// Get value from environment
-	url := os.Getenv("SCRAPE_URL")
+func main() {
+	url := os.Getenv("SCRAPE_URL") // <- This works with Docker Compose env
 	if url == "" {
 		log.Fatal("SCRAPE_URL not set")
 	}
