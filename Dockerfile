@@ -1,6 +1,9 @@
 # Use a lightweight base image
 FROM alpine:latest
 
+# Set environment variables
+ENV SCRAPE_URL=""
+
 # Set the working directory
 WORKDIR /app
 
@@ -11,3 +14,5 @@ COPY monster-scrape .
 EXPOSE 8080
 # Command to run the application
 CMD ["./monster-scrape"]
+
+ENTRYPOINT ["./monster-scrape"]
