@@ -63,6 +63,11 @@ jobs:
             # Navigate to the directory containing the docker-compose.yml file
             cd /home/deploy/
             
+            docker stop monster-scrape || true
+            docker rm monster-scrape || true
+            docker stop monster-trends || true
+            docker rm monster-trends || true 
+            
             # Pull the latest images for all services
             docker compose pull
             
