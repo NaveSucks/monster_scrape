@@ -1,0 +1,24 @@
+version: '3.8'
+networks:
+  monster-network:
+    external: true # Use the network created manually on the VPS
+services:
+  monster-scrape:
+    image: navesucks/monster-scrape:latest
+    container_name: monster-scrape
+    restart: always
+    networks:
+      - monster-network
+
+  monster-trends:
+    image: navesucks/monster-trends:latest
+    container_name: monster-trends
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      API_URL: http://monster-scrape:8080/offers 
+    networks:
+      - monster-network
+    depends_on:
+      - monster-scrape
