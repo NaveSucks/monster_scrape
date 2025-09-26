@@ -5,8 +5,8 @@ networks:
 services:
   monster-scrape:
     image: navesucks/monster-scrape:latest
-    env_file:
-      - ./config.env
+    environment:
+      - SCRAPE_URL=${SCRAPE_URL}
     container_name: monster-scrape
     restart: always
     networks:
