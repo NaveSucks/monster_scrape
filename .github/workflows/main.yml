@@ -72,7 +72,7 @@ jobs:
             docker compose pull
             
             # scrape_url environment variable
-            echo "SCRAPE_URL=${{ secrets.SCRAPE_URL }}" > ~/app/config.env 
+            echo "SCRAPE_URL=${{ secrets.SCRAPE_URL }}" > ~/config.env 
             
             # Restart the stack to use the newly pulled image
             # The 'up' command will detect the new monster-scrape image and recreate

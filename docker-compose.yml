@@ -6,7 +6,7 @@ services:
   monster-scrape:
     image: navesucks/monster-scrape:latest
     env_file:
-      - ./app/config.env
+      - ./config.env
     container_name: monster-scrape
     restart: always
     networks:
