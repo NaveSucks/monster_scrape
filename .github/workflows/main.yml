@@ -8,6 +8,9 @@ on:
 jobs:
   build_and_push: # Renamed job
     runs-on: ubuntu-latest
+    environment: prod
+    env:
+      SCRAPE_URL : ${{ secrets.SCRAPE_URL }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -81,4 +84,4 @@ jobs:
             pwd
             echo "Contents:"
             ls -la
-            docker compose --env-file ./config.env up -d --force-recreate
+            docker compose up -d --force-recreate
