@@ -84,4 +84,4 @@ jobs:
             pwd
             echo "Contents:"
             ls -la
-            docker compose up -d --force-recreate --env SCRAPE_URL=${{ secrets.SCRAPE_URL }}
+            SCRAPE_URL=${{ secrets.SCRAPE_URL }} docker compose up -d --force-recreate
