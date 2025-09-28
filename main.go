@@ -14,7 +14,7 @@ func init() {
 }
 
 func main() {
-	url := os.Getenv("SCRAPE_URL") // <- This works with Docker Compose env
+	url := os.Getenv("SCRAPE_URL")
 	if url == "" {
 		log.Fatal("SCRAPE_URL not set")
 	}
