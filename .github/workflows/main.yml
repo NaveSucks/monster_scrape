@@ -55,7 +55,7 @@ jobs:
       # It connects to the VPS and tells docker compose to check for updates.
       - name: Trigger Monster Trends Deployment Reload
         env:
-          SCRAPE_URL : ${{ secrets.SCRAPE_URL }}
+          SCRAPE_URL: ${{ secrets.SCRAPE_URL }}
         uses: appleboy/ssh-action@v0.1.7
         with:
           host: ${{ secrets.VPS_HOST }}
