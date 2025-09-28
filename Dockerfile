@@ -1,9 +1,6 @@
 # Use a lightweight base image
 FROM alpine:latest
 
-# Set environment variables
-ENV SCRAPE_URL=""
-
 # Set the working directory
 WORKDIR /app
 
