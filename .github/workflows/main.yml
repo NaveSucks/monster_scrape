@@ -94,4 +94,4 @@ jobs:
             pwd
             echo "Contents:"
             ls -la
-            SCRAPE_URL=${{ secrets.SCRAPE_URL }} docker compose up -d --force-recreate
+            docker compose up -d --force-recreate
