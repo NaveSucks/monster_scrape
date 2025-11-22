@@ -73,5 +73,65 @@
     "discounter": "Netto Marken-Discount",
     "price": "0,99 €",
     "date": "2025-09-25"
+  },
+  {
+    "discounter": "EDEKA",
+    "price": "0,88 €",
+    "date": "2025-09-28"
+  },
+  {
+    "discounter": "EDEKA",
+    "price": "0,88 €",
+    "date": "2025-09-29"
+  },
+  {
+    "discounter": "EDEKA",
+    "price": "0,88 €",
+    "date": "2025-10-02"
+  },
+  {
+    "discounter": "Kaufland",
+    "price": "0,77 €",
+    "date": "2025-10-02"
+  },
+  {
+    "discounter": "REWE",
+    "price": "0,99 €",
+    "date": "2025-10-31"
+  },
+  {
+    "discounter": "REWE",
+    "price": "0,99 €",
+    "date": "2025-10-31"
+  },
+  {
+    "discounter": "Lidl",
+    "price": "0,77 €",
+    "date": "2025-10-31"
+  },
+  {
+    "discounter": "EDEKA",
+    "price": "0,89 €",
+    "date": "2025-10-31"
+  },
+  {
+    "discounter": "Netto Marken-Discount",
+    "price": "0,99 €",
+    "date": "2025-10-31"
+  },
+  {
+    "discounter": "Lidl",
+    "price": "109,00 €",
+    "date": "2025-10-31"
+  },
+  {
+    "discounter": "famila Nordost",
+    "price": "0,99 €",
+    "date": "2025-10-31"
+  },
+  {
+    "discounter": "famila Nordost",
+    "price": "0,99 €",
+    "date": "2025-10-31"
   }
 ]
